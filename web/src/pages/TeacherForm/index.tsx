@@ -2,7 +2,16 @@ import React from 'react';
 
 import PageHeader from '../../components/PageHeader';
 
+import Input from '../../components/Input';
+
+import Textarea from '../../components/Textarea';
+
+import Select from '../../components/Select';
+
+import warningIcon from '../../assets/images/icons/warning.svg';
+
 import './styles.css';
+
 
 function TeacherForm() {
     return (
@@ -16,21 +25,37 @@ function TeacherForm() {
                 <fieldset>
                     <legend>Seus dados</legend>
 
-                    <div className="input-block">
-                        <label htmlFor="name">Nome Completo</label>
-                        <input type="text" id="name"/>
-                    </div>
-
-                    <div className="input-block">
-                        <label htmlFor="name">Avatar</label>
-                        <input type="text" id="avatar"/>
-                    </div>
-
-                    <div className="input-block">
-                        <label htmlFor="name">Whatsapp</label>
-                        <input type="text" id="whatsapp"/>
-                    </div>
+                    <Input name="name" label="Nome completo"/>
+                    <Input name="avatar" label="Avatar"/>
+                    <Input name="whatsapp" label="Whatsapp"/>
+                    <Textarea name="bio" label="Biografia"/>
                 </fieldset>
+
+                <fieldset>
+                    <legend>Sobre a aula</legend>
+
+                    <Select name="subject" label="Matéria" 
+                    options={[
+                        { value: 'Artes', label: 'Artes'},
+                        { value: 'Biologia', label: 'Biologia'},
+                        { value: 'Ciências', label: 'Ciências'},
+                        { value: 'Físicas', label: 'Física'},
+                        { value: 'História', label: 'História'}
+                    ]}
+                    />
+                    <Input name="cost" label="Custo da sua hora por aula"/>
+                </fieldset>
+
+                <footer>
+                    <p>
+                        <img src={warningIcon} alt="Aviso importante"/>
+                        Importante! <br />
+                        Preencha todos os dados
+                    </p>
+                    <button type="button">
+                        Salvar cadastro
+                    </button>
+                </footer>
             </main>
         </div>
     )
