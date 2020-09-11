@@ -6,7 +6,7 @@ module.exports = {
         connection: {
             database: "knex_test",
             user: "postgres",
-            password: "648a722e"
+            password: "addYourOwnPassword"
         },
         migrations: {
             directory: path.resolve(__dirname, 'src', 'database', 'migrations')
